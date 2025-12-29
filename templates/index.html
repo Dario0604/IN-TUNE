@@ -1,0 +1,58 @@
+{% extends "base.html" %} {% block content %}
+
+<h1 class="mb-4 text-center">IN TUNE</h1>
+<h5 class="mb-4 text-center">
+  Pick your current mood to get fitting song suggestions:
+</h5>
+
+<div class="d-flex flex-column flex-md-row p-4 align-items-center justify-content-center">
+  <form action="/results" method="post" class="col-10 col-md-5 col-lg-4 mx-auto">
+    <!--Used ChatGPT as a reference to change bootstrap layout from list-group to buttons for easier CSS customization-->
+    <!-- Happy -->
+    <input type="radio" class="btn-check" name="mood" id="happy" value="happy" checked />
+    <label class="btn btn-outline-primary w-100 mb-3 text-start" for="happy">
+      <h6 class="mb-1">Happy</h6>
+      <small>Music to lift your mood</small>
+    </label>
+
+    <!-- Reflective -->
+    <input type="radio" class="btn-check" name="mood" id="reflective" value="reflective" />
+    <label class="btn btn-outline-primary w-100 mb-3 text-start" for="reflective">
+      <h6 class="mb-1">Reflective</h6>
+      <small>Songs to comfort you or contemplate</small>
+    </label>
+
+    <!-- Energetic -->
+    <input type="radio" class="btn-check" name="mood" id="energetic" value="energetic" />
+    <label class="btn btn-outline-primary w-100 mb-3 text-start" for="energetic">
+      <h6 class="mb-1">Energetic</h6>
+      <small>Songs to match your high</small>
+    </label>
+
+    <!-- Chill -->
+    <input type="radio" class="btn-check" name="mood" id="chill" value="chill" />
+    <label class="btn btn-outline-primary w-100 mb-4 text-start" for="chill">
+      <h6 class="mb-1">Chill</h6>
+      <small>Relaxing and calming tunes</small>
+    </label>
+
+    <!-- Submit -->
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary btn-lg">Get Music 🎵</button>
+    </div>
+  </form>
+</div>
+
+<!--Project Description-->
+<h5 class="mb-4 text-center">Project description:</h5>
+<div class="text-center mx-auto" style="max-width: 550px;">
+  <h6>
+    Music is a powerful means of expression that allows for a more abstract view
+    of our emotions. It can also be used to help us understand and benefit from
+    our current emotional state. This project provides song suggestions based on
+    the user's current mood, creating a more meaningful and emotionally aware
+    listening experience.
+  </h6>
+</div>
+
+{% endblock %}
