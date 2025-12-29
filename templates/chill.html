@@ -1,0 +1,77 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container col-xxl-8 px-4 py-3">
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+    <div class="col-10 col-sm-8 col-lg-6">
+      <img
+        src="{{ url_for('static', filename='chill.jpg') }}"
+        class="d-block mx-lg-auto img-fluid"
+        alt="Failed to load image"
+        width="300"
+        height="50"
+        loading="lazy"
+      />
+    </div>
+    <div class="col-lg-6">
+      <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">
+        These are some chill songs to help you relax
+      </h1>
+      <ul class="lead">
+        {% for song in songs %}
+        <li>
+          <a
+            href="{{ song.url }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-decoration-none"
+          >
+            {{ song.title }} – {{ song.artist }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a
+          href="{{ url_for('index') }}"
+          class="btn btn-primary btn-lg px-4 me-md-2"
+        >
+          Pick another mood
+        </a>
+        <button
+          class="btn btn-outline-secondary btn-lg px-4"
+          onclick="location.reload()"
+        >
+          Refresh Songs
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Seccond Bootstrap template-->
+<div class="container col-xxl-8 px-4 py-3">
+  <div class="row g-4 row-cols-1 row-cols-lg-3">
+    <div class="feature col">
+      <h3 class="fs-2 text-body-emphasis">Comfort and Peace</h3>
+      <p>
+        Calm moments are essential for reflection and rest. This music decreases
+        stress, helping create a sense of comfort and ease.
+      </p>
+    </div>
+    <div class="feature col">
+      <h3 class="fs-2 text-body-emphasis">Tuning in the Present</h3>
+      <p>
+        Softer melodies and gentle vibes encourage thought and create a sense of
+        calm . These songs encourage you to slow your thoughts and settle
+        into the present.
+      </p>
+    </div>
+    <div class="feature col">
+      <h3 class="fs-2 text-body-emphasis">Creating Space</h3>
+      <p>
+        Use these songs during quiet moments, late nights, or whenever you need
+        space to think, relax, or simply exist without pressure.
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}
