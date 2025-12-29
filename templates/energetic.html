@@ -1,0 +1,77 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container col-xxl-8 px-4 py-3">
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+    <div class="col-10 col-sm-8 col-lg-6">
+      <img
+        src="{{ url_for('static', filename='energetic.jpg') }}"
+        class="d-block mx-lg-auto img-fluid"
+        alt="Failed to load image"
+        width="300"
+        height="50"
+        loading="lazy"
+      />
+    </div>
+    <div class="col-lg-6">
+      <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">
+        These are some songs to match your energetic vibe!
+      </h1>
+      <ul class="lead">
+        {% for song in songs %}
+        <li>
+          <a
+            href="{{ song.url }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-decoration-none"
+          >
+            {{ song.title }} – {{ song.artist }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a
+          href="{{ url_for('index') }}"
+          class="btn btn-primary btn-lg px-4 me-md-2"
+        >
+          Pick another mood
+        </a>
+        <button
+          class="btn btn-outline-secondary btn-lg px-4"
+          onclick="location.reload()"
+        >
+          Refresh Songs
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Seccond Bootstrap template-->
+<div class="container col-xxl-8 px-4 py-3">
+  <div class="row g-4 row-cols-1 row-cols-lg-3">
+    <div class="feature col">
+      <h3 class="fs-2 text-body-emphasis">Musical Momentum</h3>
+      <p>
+        Energetic upbeat music increases motivaton and physical engagement,
+        making it a useful tool for physical activities.
+      </p>
+    </div>
+    <div class="feature col">
+      <h3 class="fs-2 text-body-emphasis">Overall Fun</h3>
+      <p>
+        High energy music adds liveliness to activities and events, often making
+        them more entertaining and memorable.
+      </p>
+    </div>
+    <div class="feature col">
+      <h3 class="fs-2 text-body-emphasis">Fitting for Many Scenarios</h3>
+      <p>
+        Whether you are working out, completing a task, or even creating
+        somenthing, energetic music provides that necessary boost of motivation
+        and energy we all need.
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}
